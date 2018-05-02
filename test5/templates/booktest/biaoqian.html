@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {%for book in book_list%}
+    {%if book.id <= 2%}
+    <li style='background-color: red'>{{book.btitle}}</li>
+    {%elif book.id <= 3%}
+    <li style='background-color: pink'>{{book.btitle}}</li>
+    {%else%}
+    <li style='background=color: blue' >{{book.btitle}}</li>
+    {%endif%}
+    {%endfor%}
+</ul>
+</body>
+</html>

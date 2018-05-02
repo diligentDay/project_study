@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Title</title>
+    <script src='/static/js/jquery-1.12.4.min.js'></script>
+    <script>
+        $(function () {
+            $.get('/sheng/',function(data) {
+                sheng=$('#sheng');
+                $.each(data.list,function(i,n) {
+                    sheng.append('<option value="'+n[0]+'">'+n[1]+'</option>');
+            $('#sheng').change(function () {
+                sid=$(this).val();
+                $.get('/shi/',{'sid':sid},function (data) {
+                    shi=$('#shi');empty().append('<option value='0'>请选择</option>')
+                    $.each(data.list,functon (i,n) {
+                        shi.append('<option value="'+n.id+'">'+n.title'</option>)
+});
+                    
+});
+});
+});
+});
+});
+    </script>
+</head>
+<body>
+<select id='sheng'>
+    <option value='0'>请选择</option>
+</select>
+<select id='shi'>
+    <option value='0'>请选择</option>
+</select>
+<select id='qu'>
+    <option value='0'>请选择</option>
+</select>
+</body>
+</html>
+</body>
+</html>

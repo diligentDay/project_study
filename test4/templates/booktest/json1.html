@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Title</title>
+    <script src='/static/js/jquery-1.12.4.min.js'></script>
+    <script>
+        $(function() {
+            $('#btnShow').click(function () {
+                $.get('/json2/',function (data){
+                    booklist=$('#booklist');
+                    $.each(data.list,function (i,n) {
+                        booklist.append('<li>'+n.btitle+'</li>');
+});
+});
+});    
+});
+    </script>
+</head>
+<body>
+<input type='button' id='btnShow' value='显示'>
+<ul id='booklist'>
+
+
+</ul>
+</body>
+</html>

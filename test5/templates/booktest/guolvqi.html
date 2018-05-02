@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {%load filters%}
+    {%for book in book_list%}
+    {%if book.btitle|length > 4%}
+    <li style='background-color: red'>{{book.btitle}}-----{{book.bpub_date}}</li>
+    {%else%}
+    <li style='background-color: pink'>{{book.btitle}}-----{{book.bpub_date|date:'Y-m-j'}}</li>
+    {%endif%}
+    {%endfor%}
+</ul>
+</body>
+</html>

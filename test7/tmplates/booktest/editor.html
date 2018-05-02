@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Title</title>
+    <script type='text/javascript' src='/static/js/tiny_mce.js'></script>
+    <script>
+        tinyMCE.init({
+            'mode':'textareas',
+            'theme':'advanced',
+            'width':400,
+            'height':100
+});
+    </script>
+</head>
+<body>
+<form method='post' action='/editor2/'>
+    {%csrf_token%}
+    <textarea name='editor1'8></textarea>
+    <br>
+    <input type='submit' value='提交'> 
+</form>
+</body>
+</html>
