@@ -34,3 +34,5 @@ def register_valid(request):
     return JsonResponse(context)    
 def login(request):
     return render(request,'ttsx_user/login.html')
+def index(request):
+    return render(request,'ttsx_user/index.html')
