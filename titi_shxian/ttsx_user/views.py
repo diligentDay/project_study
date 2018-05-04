@@ -33,6 +33,40 @@ def register_valid(request):
     context={'valid':resule}
     return JsonResponse(context)    
 def login(request):
-    return render(request,'ttsx_user/login.html')
+    uname=request.COOKIES.get('uname','')
+    contest={'title':'登录','uname':uname,'top':'0'}
+    return render(request,'ttsx_user/login.html',contest)
+def login_handle(request):
+    post = request.POST
+    uname = post.get('user_name')
+    upwd = post.get('user_pwd')
+    uname_jz = post.get('uanme_jz','0')#不明白神魔意思
+
+    #加密
+    s1=sha1()
+    s1.update(upwd)
+    upwd_sha1=s1.hexdigest()
+    
+    context = {'title':'登录','uname':uname,'upwd':upwd,'top':0}#不明白神魔意思
+    users = HeroInfo.objects.filter(uname=uname)
+    if len(users) == 0:
+        context['name_eror'='1']
+        return render(request,'ttsx_user/login.html',context)
+    else:
+        if users[0].upwd==upwd_sha1:#登录成功
+            #记录当前登录的用户
+            request.session['uid']=users[0].id
+            #记主用户名
+            response=redirect('/user/')
+            if uname_jz=='1':
+                response.set_cookie('uname',uname,expires=datetime.datetime.now() + datetime.timedelta(days=7))
+            else:
+                response.set)cookie('uname',',max_age=-1')
+            return response
+        else:
+           #密码错误 
+            context['pwd_error']='1'
+            return render(request,'ttsx_user/login.html',context)
+
 def index(request):
     return render(request,'ttsx_user/index.html')
