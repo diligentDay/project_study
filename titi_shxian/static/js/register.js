@@ -38,6 +38,7 @@ $(function(){
 
 
 	function check_user_name(){
+                
 		var len = $('#user_name').val().length;
 		if(len<5||len>20)
 		{

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import rendee
 from django.http import HttpResponse
 from models import *
 # Create your views here.
@@ -14,3 +14,5 @@ def editor3(request):
     glist=GoodsInfo.objects.all()
     context={'list':glist}
     return render(request,'booktest/editor3.html',context)
+def query(request):
+    return render(request,'booktest/query.html')
