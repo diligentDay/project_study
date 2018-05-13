@@ -1,0 +1,28 @@
+{%extends 'ttsx_goods/base.html'%}
+{%block detail%}
+	<div class="breadcrumb">
+		<a href="#">全部分类</a>
+		<span>></span>
+		<a href="#">{{goods.gtype}}</a>
+		<span>></span>
+		<a href="#">{{goods.gtitle}}</a>
+	</div>
+{%endblock detail%}
+{%block right%}
+		<div class="r_wrap fr clearfix">
+			<ul class="detail_tab clearfix">
+				<li class="active">商品介绍</li>
+				<li>评论</li>
+			</ul>
+
+			<div class="tab_content">
+				<dl>
+					<dt>商品详情：</dt>
+					<dd>{{goods.gcontent}} </dd>
+				</dl>
+			</div>
+
+		</div>
+
+{%endblock right%}
+

@@ -1,3 +1,4 @@
+#coding=utf-8
 """
 Django settings for titi_shxian project.
 
@@ -38,6 +39,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ttsx_user',
+    'ttsx_goods',
+    'tinymce',
+    'haystack',
+    'ttsx_cart',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,6 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'ttsx_user.middleware.UrlMiddleware',
 )
 
 ROOT_URLCONF = 'titi_shxian.urls'
@@ -107,4 +113,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
-]
+]#不懂
+MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+TINYMCE_DEFAULT_CONFIG = {
+    'theme':'advanced',
+    'width':600,
+    'height':400,
+}
+HAYSTACK_CONNECTIONS = {
+    'default':{
+        'ENGINE':'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'PATH':os.path.join(BASE_DIR,'whoosh_index'),
+}
+}
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

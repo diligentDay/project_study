@@ -5,6 +5,8 @@ from django.http import JsonResponse
 from hashlib import sha1
 from models import *
 import datetime
+from user_decorators import *
+from ttsx_goods.models import GoodsInfo
 # Create your views here.
 def register(request):
     context={'title':'注册','top':'0'}
@@ -61,16 +63,13 @@ def login_handle(request):
         return render(request,'ttsx_user/login.html',context)
     else:
         #用户名存在
-        print(issubclass(type(users),list))
-        print(issubclass(type(users),dict))
-        print(type(users))
-        print(users)
-        print(dir(users))
         if users[0].upwd==upwd_sha1:#登录成功
             #记录当前登录的用户
             request.session['uid']=users[0].id #不懂
+            request.session['uname']=uname
             #记主用户名
-            response=redirect('/user/')
+            url= request.session.get('url_path','/')
+            response=redirect(url)
             if uname_jz=='1':
                 response.set_cookie('uname',uname,expires=datetime.datetime.now() + datetime.timedelta(days=7))
             else:
@@ -80,23 +79,40 @@ def login_handle(request):
            #密码错误 
             context['pwd_error']='1'
             return render(request,'ttsx_user/login.html',context)
+def islogin(request):
+    result=0
+    if request.session.has_key('uid'):
+        result=1
+    return JsonResponse({'islogin':result})
+        
+def logout(request):
+    #不懂
+    request.session.flush()
+    return redirect('/user/login/')
+@user_login
 def center(request):
-    context={'title':'用户中心'}
-    return render(request,'ttsx_user/user_center_info.html',context)
-def index(request):
-    return render(request,'ttsx_user/index.html')
+    user = HeroInfo.objects.get(pk=request.session['uid'])  
 
-def test_res(request):
-    a = HttpResponse('ok')
-    print(type(a))
-    print(a)
-    print(dir(a))
-    b = JsonResponse({'ok':'1234'})
-    print(type(b))
-    print(b)
-    print(dir(b))
-    c = render(request,'ttsx_user/index.html')
-    print(type(c))
-    print(c)
-    print(dir(c))
-    return a
+    gids=request.COOKIES.get('goods_ids','').split(',')
+    gids.pop()
+    glist=[]
+    for gid in gids:
+        glist.append(GoodsInfo.objects.get(id=gid)) 
+    context={'title':'用户中心','user':user,'glist':glist}
+    return render(request,'ttsx_user/user_center_info.html',context)
+@user_login
+def order(request):
+    context={'title':'用户订单'}
+    return render(request,'ttsx_user/user_center_order.html',context)
+@user_login
+def site(request):
+    user= HeroInfo.objects.get(pk=request.session['uid'])
+    if request.method=='POST':
+        post=request.POST
+        user.ushou=post.gte('ushou')
+        user.uadd=post.gte('uadd')  
+        user.ucode=post.gte('ucode')
+        user.uphone=post.get('uphone')
+        user.save()
+    context={'title':'用户地址','user':user}
+    return render(request,'ttsx_user/user_center_site.html',context)
