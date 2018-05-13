@@ -1,5 +1,6 @@
 #coding:utf-8
-
+ningijkkoi
+ni
 def user_login(func):
     def func1(request,*args,**kvargs):
         print 'ab'
