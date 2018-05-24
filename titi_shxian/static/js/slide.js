@@ -1,17 +1,15 @@
 $(function(){
 	var $slides = $('.slide_pics li');
-	qqqqqvar len = $slides.length;
+	var len = $slides.length;
 	var jyt  nowli = 0;
 	var prevli = 0;
 	var $prev = $('.prev');
 	var $next = $('.next');
 	var ismove = false;
 	var timer = null;
-jjjjjjjj
 	$slides.not(':first').css({left:760});
 	$slides.each(function(index, el) {
 		var $li = $('<li>');
-bbbbbbbbbb
 		if(index==0)
 		{
 			$li.addClass('active');

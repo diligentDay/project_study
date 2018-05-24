@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<form>
+    <label> user:</label><input type="text" name="username"><br/>
+    <label> shen:</label><input type="text" name="idcard"><br/>
+    <label> mi:</label><input type="password" name="password"><br/>
+    <label> que:</label><input type="password" name="password2"><br/>
+    <input type="submit" value="yijiao">
+    
+</form>
+{%macro input(label="",type="text",name="")%}
+<label>{{label}}</label><input type="{{type}}"name="{{name}}"><br/>
+{%endmacro%}
+<form>
+    {{input("user",name="username")}}<br>
+</form>
+</body>
+</html>

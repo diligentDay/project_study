@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h1>书籍列表</h1>
+<ul>
+    {%for author in authors%}
+        <li>
+            {{author.name}}
+            <ul>
+                {%for book in author.books%}
+                    <li>{{book.name}}</li>
+                {% else %}
+                    <li>无书集</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {%endfor%}
+{% for message in get_flashed_messages()%}
+    {{ message }}
+{% endfor %}
+</ul>
+
+
+</body>
+</html>

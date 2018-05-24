@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>aaaaaaaaaa</h1>
+{{my_list}}
+{{my_int}}
+{{"hello" | db2}}
+{{my_list | aa}}
+{#{{"my_dict_aa" | sum(attribute="age")}}#}
+{#{%if my_list | length >0 %}#}
+{%for item in my_list if item > 3%}
+    {{item}} 
+{%endfor%}
+{% macro input(name,value='',type='text')%}
+    <input typ="{{type}}"> name="{{name}}"
+        value="{{value}}" class="form-control"
+{%endmacro%}
+</body>
+</html>

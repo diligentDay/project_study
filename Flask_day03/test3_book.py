@@ -1,12 +1,19 @@
 #coding=utf-8
-from flask import Flask,render_template,redirect,url_for
+from flask import Flask,render_template,redirect,url_for,request,flash
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms.validators import DataRequired
+from wtforms import StringField,SubmitField
+
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:pythonL@127.0.0.1:3306/test4'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:pythonL@127.0.0.1:3306/book'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = "aaaa"
 
 #实例化SOLAlchemy对象
 db = SQLAlchemy(app)
@@ -22,9 +29,58 @@ class Book(db.Model):
     __tablename__ = 'books'
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(32))
-    au_book = db.Column(db.Integer,db.ForeignKey('author.id'))
+    author_id = db.Column(db.Integer,db.ForeignKey('author.id'))
     def __str__(self):
-        return 'Book:%s,%s'%(self.info,self.lead)
+        return 'Book:%s'%(self.name)
+
+
+class Append(FlaskForm):
+    au_info = StringField(validators=[DataRequired()])
+    bk_info = StringField(validators=[DataRequired()])
+    submit = SubmitField(u'添加')
+@app.route('/',methods=['GET','POST'])
+def index():
+    append_form= Append()
+ 
+    if request.method == 'POST':
+        if append_form.validate_on_submit():
+            author_name = append_form.au_info.data
+            book_name = append_form.bk_info.data
+            author = Author.query.filter_by(name=author_name).first()
+            if not author:
+                try:
+                    author = Author(name=author_name)
+                    db.session.add(author)
+                    db.session.commit()
+                    
+                    db.book = Book(name=book_name,author_id=author.id)
+                    db.session.add(book)
+                    db.session.commit()
+                except Exception as e:
+                    db.session.rollback()
+                    print e
+                    flash('数据库加错误')
+            else:
+                book_name = [book.name for book in author.books]
+                if book_name in book_name:
+                    flash('该作者已存在相同的书名')
+                else:
+                    try:
+                        book = Book(name=book_name,author_id=author.id)
+                        db.session.add(book)
+                        db.session.commit()
+                    except Exception as e:
+                        db.session.rollback()
+                        print e
+                        flash('数据添加错误')
+        else:
+            flash('数据输入有问题')
+
+ 
+    authors = Author.query.all()
+    book = Book.query.all()
+    return render_template('index.html',authors=authors,book=book,append_form=append_form)
+    
 if __name__ == '__main__':
     db.drop_all()
     db.create_all()
@@ -35,9 +91,7 @@ if __name__ == '__main__':
     # 把数据提交给用户会话
     db.session.add_all([au1, au2, au3])
     # 提交会话
-    print('--------------1')
     db.session.commit()
-    print('--------------2')
     bk1 = Book(name='老王回忆录', author_id=au1.id)
     bk2 = Book(name='我读书少，你别骗我', author_id=au1.id)
     bk3 = Book(name='如何才能让自己更骚', author_id=au2.id)
