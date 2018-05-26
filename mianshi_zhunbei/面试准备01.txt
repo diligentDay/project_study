@@ -1,0 +1,311 @@
+2018年05月20日
+    wget（大伯柳盖特）, curl（克欧）, 两个linux（里牛克斯）命令， http请求下载
+    numpy（纳木派） python的数值计算库， matrix（）矩阵， array（额瑞）数组，快是因为底层使用C语言实现， 矩阵相乘， 矩阵内积， 矩阵求逆
+    matplotlib（马蹄魄力波） python绘图库， 折线图， 散点图，饼图，箱线图， 3D图
+    pandas（潘达斯） 数据处理分析，对numpy的封装，矩阵计算， 向excel一样处理数据，可以做数据透视图， 保存成excel
+    接口：这里特指软件接口，是指对协定进行定义的引用类型。通俗讲是就是软件系统不同组成部分衔接的约定。通常就是所谓的API （Application Programming Interface） 应用程序编程接口，其表现的形式是源代码
+    postman（剖斯特慢） 一款功能强大的调试HTTP接口的工具，它最早是Chrome中最受欢迎的插件之一，现已扩展到Mac，Windows和Linux客户端。
+    Docker（刀壳） 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
+    微服务是一个新兴的软件架构，就是把一个大型的单个应用程序和服务拆分为数十个的支持微服务。一个微服务的策略可以让工作变得更为简便，它可扩展单个组件而不是整个的应用程序堆栈，从而满足服务等级协议。
+    process（破绕塞星）进程： 在打开电脑中的一个程序时，都会打开一个进程，（程序是存储在硬盘的代码，进程是运行着的程序）进程中必须有一个主线程，可以有（或没有）其他子线程，每一个进程都有一个pid， 它父进程的pid是它的ppid， 操作系统会为每一个进程分配独立的内存空间。
+    多进程： 进程在运行时，可以fork（fao课）出子进程，mutilprocessing（马蹄破绕塞星）， 进程池pool（普欧）
+    进程的缺点是：需要操作系统分配资源，开销比线程的创建大
+    
+    thread（子瑞德）线程：进程里可以有多个线程，线程共享进程中的资源，线程是操作系统的最小调度单元，当线程改变变量时会，影响其他的线程，容易出线bug如要改变要用到锁。每个进程都可以有多个线程，但是 进程中只有一个主线程，Thread（子瑞德）threading（子瑞定）
+    
+    面向对象是一种对现实世界理解和抽象的方法，面向对象程序设计可以看作一种在程序中包含各种独立而又互相调用的对象的思想，这与传统的思想刚好相反：传统的程序设计主张将程序看作一系列函数的集合，或者直接就是一系列对电脑下达的指令。面向对象程序设计中的每一个对象都应该能够接受数据、处理数据并将数据传达给其它对象，因此它们都可以被看作一个小型的“机器”，即对象。class创建类
+    排序， 快排，它的基本思想是：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。
+    单例，工厂，
+    单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例。即一个类只有一个对象实例
+    工厂模式是我们最常用的实例化对象模式了，是用工厂方法代替new操作的一种模式。著名的Jive论坛 ,就大量使用了工厂模式，工厂模式在Java程序系统可以说是随处可见。因为工厂模式就相当于创建实例对象的new，我们经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的，所以以后new时就要多个心眼，是否可以考虑使用工厂模式，虽然这样做，可能多做一些工作，但会给你系统带来更大的可扩展性和尽量少的修改量。
+    装饰器，生成器，迭代器 ！！！！！
+    生成器和迭代器的区别
+    RESTful API（ruai斯特否） 一种软件架构风格、设计风格，而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。 REST 约束条件作为一个整体应用时，将生成一个简单、可扩展、有效、安全、可靠的架构。由于它简便、轻量级以及通过 HTTP 直接传输数据的特性。用于 web 服务和动态 Web 应用程序的多层架构可以实现可重用性、简单性、可扩展性和组件可响应性的清晰分离。开发人员可以轻松使用 Ajax 和 RESTful Web 服务一起创建丰富的界面。RESTful的关键是定义可表示流程元素/资源的对象。在REST中，每一个对象都是通过URL来表示的，对象用户负责将状态信息打包进每一条消息内，以便对象的处理总是无状态的。
+    二叉树：总结：
+        树的遍历主要有两种，一种是深度优先遍历，像前序、中序、后序；另一种是广度优先遍历，像层次遍历。在树结构中两者的区别还不是非常明显，但从树扩展到有向图，到无向图的时候，深度优先搜索和广度优先搜索的效率和作用还是有很大不同的。
+        深度优先一般用递归，广度优先一般用队列。一般情况下能用递归实现的算法大部分也能用堆栈来实现。
+        我印象中是有递归构造树的方法，却一直想不出该怎么构造。后来仔细想了一下，递归思想有点类似深度优先算法，而树的构造应该是广度优先的。如果用递归的话一定要有个终止条件，例如规定树深等。不然构造出来的树会偏向左单子树或者右单子树。所以一般树的构造还是应该用队列比较好。
+        以上说的不够严谨，有错误之处，欢迎指正！
+    python2, python3 的区别
+    
+    dict(帝科特) 字典， 单词是 dictionary（迪克什呢瑞）
+    scp 远程复制的linux命令
+    软件设计原则，追求高内聚低耦合
+    802.11g频率是2.4GHz（集合子）
+    解析Ip地址到MAC地址的对应关系（ARP）
+    修改表结构的命令（ALTER TABLE）
+    mysql查询最大值 查询最小值
+    select mxs(field_nam) from table_name;
+    select min(field_nam) from table_name;
+    在unix进程中查询一个具体的进程使用（ps）,（q）是杀死
+    http中重定向和转发的区别：
+        重定向可以看见目标页面URL,转发只能看见第一次访问的页面URL,以后的工作都是有
+        服务器来做的
+        很多数据中都存在事务死锁的问题 事务死锁是怎么形成的，怎么避免
+            是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,
+            它们都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等待的进程称为死锁进程
+    下列方法可以避免减少死锁状态
+           ◆按同一顺序访问对象。
+           ◆避免事务中的用户交互。
+           ◆保持事务简短并在一个批处理中。
+           ◆使用低隔离级别。
+           ◆使用绑定连接
+    oracle (奥瑞口) 数据库， 关系型数据库，
+    distinct(迪斯听科特) 去重
+    ascending（额森定） 升序
+    descend （第森的） 降序
+    block (波老课) 阻塞：a进程（或者线程）要等待一个事情的发生（或者一个条件的满足）才能继续执行， 
+        事情不发生（或者条件不满足）就停在这里也就是阻塞在这里不向下执行， 这就是阻塞，
+        比如， 小明叫小红一起去吃饭， 小红说：我要把书看完过十分钟才去，于是小明等了10分钟，等待就是一种阻塞， 就是停在那里什么都不干
+    sync（sin课） 同步： 比如， 小明叫小红一起去吃饭， 小红说：我要把书看完过十分钟才去，于是小明等了10分钟， 然后一起去了， 这就是同步
+    async（啊sin课）异步： 比如， 小明叫小红一起去吃饭， 小红说：我要把书看完过十分钟才去，于是小明先去吃饭了， 小红看完后自己去吃饭，这就是异步
+    并行： 两个进程（或者线程）同时执行， 同时处理任务， 对于web， 就是说的 并发， 高并发就是同时处理的请求数多
+    find和grep的区别， find是查找目录中的文件， grep是查找文件中的内容
+        find ./ -name "*.py" | xargs grep "database"
+    search（色痴） 和 match（麦痴） 的区别：这是再说正则表达式中的两个函数， match必须从第一个字符匹配， search可以从任意字符开始匹配
+        match 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。
+        search 扫描整个字符串并返回第一个成功的匹配。
+    lambda（拉姆达） 匿名函数， 优点： 一个功能简单、使用频次不高的函数使用lambda 精简代码，但是一味的追求lambda的使用，对代码可读性往往带来灾难性的后果。
+    
+    拷贝的注意点： 数字，字符没有拷贝，产生的都是引用
+    递归函数终止的条件： 递归就是自己调用自己。 必须有一个分支不调用自身， 而且要最终要进入这个分支
+    
+    约定俗成：指事物的名称或社会习惯往往是由人民群众经过长期社会实践而确定或形成的。不是规定的名字
+    
+    类属性实例属性： 
+        a = A() # a 是类A 的实例， a是实例对象， A是类对象
+        print a.abc  # 会在实例对象a的属性中寻找abc，如果找不到会去a对应的类对象A的属性中去找abc 
+        a.abc = '123'  # 会把实例对象a的属性abc的值设置为'123'， a对应的类对象A的属性abc是不变的
+        
+    类的 普通方法：第一个参数约定俗成为self， 表示 类的实例对象
+    类的 静态方法：不需要传入类对象或者实例对象
+    类的 类方法：  第一个参数约定俗成为cls， 表示 类对象自己 
+    
+    Celery是Python开发的分布式任务调度模块，Celery本身不含消息服务，它使用第三方消息服务来传递任务，
+        目前，Celery支持的消息服务liury由三部分组成，消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。
+        由三部分组成，消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。有RabbitMQ、Redis甚至是数据库，当然Redis应该是最佳选择。由三部分组成，
+        消息中间件（message broker），任务执行单元（worker）和任务执行结果存储（task result store）组成。
+    
+    tcp， udp， 
+    
+    
+    
+    
+    
+# 类方法  静态方法
+class Tst:
+    name = 'tst'
+
+    data = 'this is data'
+
+    # 普通方法
+    def normalMethod(self, name):
+        print self.data, name
+
+    # 类方法,可以访问类属性
+    @classmethod
+    def classMethod(cls, name):
+        print cls.data, name
+
+    # 静态方法,不可以访问类属性
+    @staticmethod
+    def staticMethod(name):
+        print name
+    
+# 快速排序
+def quick_sort(alist, start, end):
+    #快速排序
+    #递归的退出跳出条件
+    if start >= end:
+        return
+    #设定起始元素为要找位置的基准元素
+    mid = alist[start]
+    #low为序列左边的由左向右移动游标
+    low = start
+    #high为序列右边的由右向左的游标
+    high = end
+    while low < high:
+       #如果Low 与high重合，high 指向的元素不比基准元素小，则high向左移动
+        while low < high and alist[high] >= mid:
+            high -= 1
+            #将high指向的元素放到low 的位置
+        alist[low] = alist[high]
+        #如果wow 与 high 未重合，low 指向的元素比基准元素小，则low 向右移动
+        while low < high and alist[low] < mid:
+            low += 1
+        #将low指定的元素放在high的位置上
+        alist[high] = alist[low]
+        
+    #退出循环后，low 与 high 重合，此时所指位置为基准元素的正确位置
+    #将基准元素放到该位置
+    alist[low] = mid
+
+    #对基准元素右边的子序列进行快速排序
+    quick_sort(alist,start,low-1)
+    quick_sort(alist,low+1,end)
+alist = [54,26,93,17,77,31,44,55,20]
+quick_sort(alist,0,len(alist)-1)
+print(alist)
+
+# 插入排序
+# 定义一个函数insert_sort传入参数alist,alist是list类型
+def insert_sort(alist):
+    # len(alist)返回列表的长度，range(...)返回一个可迭代对象, 
+    # i的取值范围是[1,列表长度), 左闭右开,也就是第二个列表元素的索引到最后一    # 个元素的索引
+    for i in range(1,len(alist)):
+        # 此时是当前的索引是 i 
+        # range(....)返回一个可迭代对象 j 的取值范围是[i,0),左闭右开,
+        # 步长为-1，依次递减,比如i 为 5 时 j 每次的取值分别是5,4,3,2,1
+        for j in range(i,0,-1):
+            # 如果索引 j 对应的值 小于 索引 j-1 对应的值就..... 
+            if alist[j] < alist[j-1]:
+                # j 对应的值和 j-1 对应的值调换位置
+                # 让较小值在前面， 也就是 索引 j-1 的位置
+                alist[j], alist[j-1] = alist[j-1], alist[j]
+alist = [54,26,93,17,77,31,44,55,20]
+insert_sort(alist)
+print(alist)
+
+# 单例模式
+class Singleton(object):
+    __instance = None
+    __first_init = False
+    def __new__(cls, age, name):
+        if not cls.__instance:
+            cls.__instance = object.__new__(cls)
+        return cls.__instance
+    def __init__(self, age, name):
+        if not self.__first_init:
+            self.age = age
+            self.name = name
+            Singleton.__first_init = True
+a = Singleton(18,'dongGe')
+b = Singleton(8,'dongGe')
+print(id(a))
+print(id(b))
+print(a.age)
+print(b.age)
+a.age = 19
+print(b.age)
+
+# 工厂模式
+#定义一个基本的4s店
+class CarStore(object):
+    def createCar(self,typeName):
+        pass
+    def order(self, typeName):
+        self.car = self.createCar(typeName)
+        self.car.move()
+        self.car.stop()
+class XiandaiCarStore(CarStore):
+    def createCar(self,typeName):
+        self.carFactory = CarFactory()
+        return self.carFactory.createCar(typeName)
+class YilanteCar(object):
+    def move(self):
+        print('----车在移动----')
+    def stop(self):
+        print('----停车----')
+class SuonataCar(object):
+    def move(self):
+        print('-----车在移动-----')
+    def stop(self):
+        print('-------停车------')
+class CarFactory(object):
+    def createCar(self,typeName):
+        self.typeName = typeName
+        if self.typeName == '伊兰特':
+            self.car = YilanteCar()
+        elif self.typeName == '索纳塔':
+            self.car = SuonataCar()
+        return self.car
+suonata = XiandaiCarStore()
+suonata.order('索纳塔')
+
+# 闭包
+'''
+def test(number):
+    def test_in(number_in):
+        print('in test_in 函数, number_in is %d'%number_in)
+        
+        return number+number_in
+    return test_in
+ret = test(20)
+print(ret(100))
+print(ret(200))
+'''
+'''
+def line_cof(a,b):
+    def line(x):
+        return a*x+b
+    return line
+linel = line_cof(1,1)
+line2 = line_cof(4,5)
+print(linel(5))
+print(line2(5))
+'''
+'''
+def counter(start=0):
+    def incr():
+        nonlocal start
+        start += 1
+        return start
+    return incr
+cd = counter(5)
+print(cd())
+print(cd())
+cd = counter(50)
+print(cd())
+print(cd())
+cd2 = counter(50)
+print(cd2())
+print(cd2())
+'''
+def counter(start = 0):
+    count = [start]
+    def incr():
+        count[0] += 1
+        return count[0]
+    return incr
+c1 = counter(5)
+print(c1())
+print(c1())
+
+# 装饰器
+def makeBold(fn):
+    def wrapped():
+        return '<b>'+fn()+'</b>'
+    return wrapped
+def makeItalic(fn):
+    def wrapped():
+        return '<i>'+fn()+'<i/>'
+    return wrapped
+@makeBold
+def test1():
+    return 'hello world-1'
+@makeItalic
+def test2():
+    return 'hello world-2'
+@makeBold
+@makeItalic
+def test3():
+    return 'hello world-3'
+print(test1())
+print(test2())
+print(test3())
+
+
+
+
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
