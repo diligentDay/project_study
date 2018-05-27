@@ -60,6 +60,19 @@ py2 setup.py install
 pip install virtualenv && \
 pip install virtualenvwrapper
 
+# 05 安装git
+sudo apt-get install git
+# 生成公钥
+ssh-keygen -t rsa
+# 添加公钥到git
+# github 账号: diligentDay 密码: diligent666
+cat ~/.ssh/id_ras.pub  # 复制添加到github的ssh设置中
+mkdir ~/study
+cd ~/study
+git clone git@github.com:diligentDay/project_study.git
+#  ok
+
+
 
  
 
