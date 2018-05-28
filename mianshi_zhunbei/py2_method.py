@@ -5,12 +5,13 @@ str, list, dict, set, int, float
 datatime, re
 
 '''
-
-# 01 str类型的方法capitalize (2018-05-27)
+'''
+ 01 str类型的方法capitalize (2018-05-27)
 # 参数: 无
 # 返回值:'a, B'返回值是'A,b',' a, B'返回值是' a, b'
 # 总结:返回首字母大写的字符串,其余字母小写,
 # 如果字符串前面加空格则都返回小写
+'''
 a = 'a, BaaaaaaaBBBBB'
 b = a.capitalize()
 print b
@@ -19,13 +20,14 @@ a = ' a, BaaaaaaaBBBBB'
 b = a.capitalize()
 print b
 # output :' a,b'
-
+'''
 # 02 str类型的方法 center
 # 参数:
 #    第一个参数: 返回结果字符串的长度, int类型
 #    第二个参数: 结果字符首尾要填充的字符, str类型
 # 返回值: 字符类型
 # 总结:返回一个原字符串居中并使用空格填充长度或者是*
+'''
 a = 'abcdef'
 b = a.center(20,'*')
 print b
@@ -57,9 +59,42 @@ b = a.decode('utf-8', 'ignore')  # 执行成功, 虽然没有报错, 但解码�
 print b
 # output: u''
 
+"""
+04 str类型的方法 endswith
+参数:
+    第一个参数: 
+    第二个参数: 
+返回值:  
+总结:
+"""
+a = "this is string example....WOW!!!";
+b = "WOW!!!"
+print a.endswith(b)
+# output:True
+print a.endswith(b,20)
+# output:True
 
+b = "is"
+print a.endswith(b,2,4)
+# output:True
+print a.endswith(b,2,6)
+# output:False
 
-
+"""
+05 str类型的方法expandtabs 
+参数:第一个不用expandtabs 字符串中\t print就会变成空格出现
+     第二个使用expandtabs 字符串中\t就不会出现空格
+     第三个在expandtabs()中加入int整形数字 \t 这个位置就会出现输入数字的空格个数
+返回值:  str类型
+总结:字符串中的 tab 符号('\t')转为空格后生成的新字符串。
+"""
+a = "this is\tstring example....wow!!"
+print "Original string:" + a
+# output:Oringinal string:this is       string example...wow!!
+print "Defualt exapanded tab:" + a.expandtabs()
+# output: Defualt exapanded tab:this is string example...wow!!
+print "Defualt exapanded tab:" + a.expandtabs(16)
+# output: Defualt exapanded tab:this is                 string example...wow!!
 
 
 
